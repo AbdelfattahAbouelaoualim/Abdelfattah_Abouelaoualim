@@ -180,7 +180,6 @@ object Trainer {
     val df_WithPredictions = model.transform(test)
       .select("features", "final_status", "predictions")
 
-    // Score COmputing
     val f1_score = evaluator.evaluate(df_WithPredictions)
 
     model.write.overwrite().save(fileDataPath + "/model")
